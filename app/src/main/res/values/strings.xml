@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">StoryApp</string>
+    <string name="wellcome">Wellcome Back!</string>
+    <string name="sign_in_text">Sign in now to continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+</resources>
