@@ -1,11 +1,12 @@
-package com.ophi.storyapp
+package com.ophi.storyapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ophi.storyapp.R
 
-class LoginActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
     }
 }
