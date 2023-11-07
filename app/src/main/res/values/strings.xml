@@ -12,4 +12,12 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="name">Name</string>
     <string name="password_error">At least 8 character!</string>
+    <string name="email_error">Not a valid email!</string>
+    <string name="create_password">Create password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="image_login">Image Login</string>
+    <string name="image_register">Image Register</string>
+    <string name="create_email">Create email</string>
+    <string name="enter_your_name">Enter your name</string>
 </resources>
