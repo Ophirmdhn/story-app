@@ -1,5 +1,6 @@
 package com.ophi.storyapp.data.retrofit
 
+import com.ophi.storyapp.data.response.LoginResponse
 import com.ophi.storyapp.data.response.SignupResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -14,4 +15,11 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): SignupResponse
+
+    @FormUrlEncoded
+    @POST("login")
+    suspend fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): LoginResponse
 }
