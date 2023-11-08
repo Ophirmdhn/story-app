@@ -8,7 +8,7 @@ import com.ophi.storyapp.pref.UserModel
 import com.ophi.storyapp.repository.StoryRepository
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val repository: StoryRepository) : ViewModel() {
+class MainViewModel(private val repository: StoryRepository): ViewModel() {
     fun story() = repository.stories()
 
     fun getSession(): LiveData<UserModel> {

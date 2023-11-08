@@ -22,4 +22,5 @@
     <string name="enter_your_name">Enter your name</string>
     <string name="story_photo">Story Photo</string>
     <string name="icon_person">Icon Person</string>
+    <string name="description">Description</string>
 </resources>

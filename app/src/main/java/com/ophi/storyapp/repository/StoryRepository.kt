@@ -2,6 +2,7 @@ package com.ophi.storyapp.repository
 
 import androidx.lifecycle.liveData
 import com.google.gson.Gson
+import com.ophi.storyapp.data.response.DetailResponse
 import com.ophi.storyapp.data.response.LoginResponse
 import com.ophi.storyapp.data.response.SignupResponse
 import com.ophi.storyapp.data.response.StoryResponse
@@ -51,6 +52,18 @@ class StoryRepository private constructor(
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(jsonInString, StoryResponse::class.java)
+            emit(Result.Error(errorResponse.message))
+        }
+    }
+
+    fun detail(id: String) = liveData {
+        emit(Result.Loading)
+        try {
+            val successResponse = apiService.getDetail(id)
+            emit(Result.Success(successResponse))
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(jsonInString, DetailResponse::class.java)
             emit(Result.Error(errorResponse.message))
         }
     }

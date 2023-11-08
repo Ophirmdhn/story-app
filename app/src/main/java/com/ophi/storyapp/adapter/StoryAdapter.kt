@@ -1,11 +1,13 @@
 package com.ophi.storyapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ophi.storyapp.data.response.ListStoryItem
 import com.ophi.storyapp.databinding.StoryItemBinding
+import com.ophi.storyapp.ui.DetailActivity
 
 class StoryAdapter(private val listStory: List<ListStoryItem>) :
     RecyclerView.Adapter<StoryAdapter.ListViewHolder>() {
@@ -20,7 +22,10 @@ class StoryAdapter(private val listStory: List<ListStoryItem>) :
                 binding.tvItemName.text = storyList.name
 
                 itemView.setOnClickListener {
-
+                    val storyId = storyList.id
+                    val intentDetail = Intent(binding.root.context, DetailActivity::class.java)
+                    intentDetail.putExtra(DetailActivity.ID_STORY, storyId)
+                    binding.root.context.startActivity(intentDetail)
                 }
             }
     }
