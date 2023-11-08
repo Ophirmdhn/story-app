@@ -1,5 +1,6 @@
 package com.ophi.storyapp.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rvStory.layoutManager = LinearLayoutManager(this)
+
+        binding.fabAddStory.setOnClickListener {
+            val intent = Intent(this@MainActivity, UploadActivity::class.java)
+            startActivity(intent)
+        }
 
         showStory()
 

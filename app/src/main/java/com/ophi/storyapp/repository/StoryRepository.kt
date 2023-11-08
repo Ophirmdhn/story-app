@@ -6,11 +6,17 @@ import com.ophi.storyapp.data.response.DetailResponse
 import com.ophi.storyapp.data.response.LoginResponse
 import com.ophi.storyapp.data.response.SignupResponse
 import com.ophi.storyapp.data.response.StoryResponse
+import com.ophi.storyapp.data.response.UploadResponse
 import com.ophi.storyapp.data.retrofit.ApiService
 import com.ophi.storyapp.pref.UserModel
 import com.ophi.storyapp.pref.UserPreference
 import kotlinx.coroutines.flow.Flow
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.HttpException
+import java.io.File
 
 class StoryRepository private constructor(
     private val apiService: ApiService,
@@ -64,6 +70,22 @@ class StoryRepository private constructor(
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(jsonInString, DetailResponse::class.java)
+            emit(Result.Error(errorResponse.message))
+        }
+    }
+
+    fun upload(imageFile: File, description: String) = liveData {
+        emit(Result.Loading)
+        val requestBody = description.toRequestBody("text/plain".toMediaType())
+        val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+        val multipartBody = MultipartBody.Part.createFormData("photo",imageFile.name,requestImageFile)
+
+        try {
+            val successResponse = apiService.uploadStories(multipartBody, requestBody)
+            emit(Result.Success(successResponse))
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(jsonInString, UploadResponse::class.java)
             emit(Result.Error(errorResponse.message))
         }
     }
