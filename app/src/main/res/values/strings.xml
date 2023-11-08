@@ -20,4 +20,6 @@
     <string name="image_register">Image Register</string>
     <string name="create_email">Create email</string>
     <string name="enter_your_name">Enter your name</string>
+    <string name="story_photo">Story Photo</string>
+    <string name="icon_person">Icon Person</string>
 </resources>
