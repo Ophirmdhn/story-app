@@ -63,4 +63,6 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     implementation("com.github.bumptech.glide:glide:4.14.2")
+
+    implementation("androidx.exifinterface:exifinterface:1.3.6")
 }

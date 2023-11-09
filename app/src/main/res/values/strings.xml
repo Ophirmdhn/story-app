@@ -26,4 +26,5 @@
     <string name="button_add_story">Button add story</string>
     <string name="image_story_photo">Image story photo</string>
     <string name="add_description">Add description</string>
+    <string name="image_not_found">Image not found</string>
 </resources>

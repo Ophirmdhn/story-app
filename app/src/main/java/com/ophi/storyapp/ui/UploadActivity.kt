@@ -1,6 +1,7 @@
 package com.ophi.storyapp.ui
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,14 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import com.ophi.storyapp.R
 import com.ophi.storyapp.databinding.ActivityUploadBinding
 import com.ophi.storyapp.di.getImageUri
+import com.ophi.storyapp.di.reduceFileImage
+import com.ophi.storyapp.di.uriToFile
 import com.ophi.storyapp.model.UploadViewModel
 import com.ophi.storyapp.model.ViewModelFactory
+import com.ophi.storyapp.repository.Result
 
 class UploadActivity : AppCompatActivity() {
 
@@ -56,6 +61,7 @@ class UploadActivity : AppCompatActivity() {
 
         binding.btnCamera.setOnClickListener { startCamera() }
         binding.btnGallery.setOnClickListener { startGallery() }
+        binding.btnUpload.setOnClickListener { uploadImage() }
     }
 
     private fun showImage() {
@@ -95,8 +101,38 @@ class UploadActivity : AppCompatActivity() {
 
     private fun uploadImage() {
         currentImageUri?.let { uri ->
+            val imageFile = uriToFile(uri, this).reduceFileImage()
+            Log.d("the File", "imagepath: ${imageFile.path}")
+            val description = binding.edDescription.text.toString()
 
-        }
+            viewModel.upload(imageFile, description).observe(this) { result ->
+                if (result != null) {
+                    when (result) {
+                        is Result.Loading -> {
+                            showLoading(true)
+                        }
+
+                        is Result.Success -> {
+                            showLoading(false)
+                            showToast(result.data.message)
+
+                            val intent = Intent(this@UploadActivity, MainActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                        }
+
+                        is Result.Error -> {
+                            showLoading(false)
+                            showToast(result.error)
+                        }
+                    }
+                }
+            }
+        } ?: showToast(getString(R.string.image_not_found))
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     private fun showLoading(state: Boolean) {binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE }
