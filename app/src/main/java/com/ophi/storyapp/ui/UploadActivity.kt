@@ -135,7 +135,7 @@ class UploadActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
-    private fun showLoading(state: Boolean) {binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE }
+    private fun showLoading(state: Boolean) {binding.progressIndicator.visibility = if (state) View.VISIBLE else View.GONE }
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA

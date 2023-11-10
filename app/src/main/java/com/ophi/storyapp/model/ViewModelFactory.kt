@@ -32,6 +32,10 @@ class ViewModelFactory(private val repository: StoryRepository) :
                 UploadViewModel(repository) as T
             }
 
+            modelClass.isAssignableFrom(SplashScreenViewModel::class.java) -> {
+                SplashScreenViewModel(repository) as T
+            }
+
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
