@@ -5,12 +5,12 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import androidx.exifinterface.media.ExifInterface
 import com.ophi.storyapp.BuildConfig
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -92,14 +92,9 @@ fun File.reduceFileImage(): File {
 }
 
 fun Bitmap.getRotateBitmap(file: File): Bitmap? {
-    val orientation = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        ExifInterface(file).getAttributeInt(
-            ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
-        )
-    } else {
-        TODO("VERSION.SDK_INT < Q")
-    }
-
+    val orientation = ExifInterface(file).getAttributeInt(
+        ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
+    )
     return when (orientation) {
         ExifInterface.ORIENTATION_ROTATE_90 -> rotateImage(this, 90F)
         ExifInterface.ORIENTATION_ROTATE_180 -> rotateImage(this, 180F)

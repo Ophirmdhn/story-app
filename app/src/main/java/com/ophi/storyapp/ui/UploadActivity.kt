@@ -125,6 +125,7 @@ class UploadActivity : AppCompatActivity() {
                             showLoading(false)
                             showToast(result.error)
                         }
+
                     }
                 }
             }

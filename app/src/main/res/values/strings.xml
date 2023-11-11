@@ -34,4 +34,8 @@
     <string name="upload">Upload</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
+    <string name="image_welcome">Image Welcome</string>
+    <string name="share_is_fun">Share is Fun!</string>
+    <string name="share_your_activities">Share your activities with us!</string>
+    <string name="get_started">Get started!</string>
 </resources>

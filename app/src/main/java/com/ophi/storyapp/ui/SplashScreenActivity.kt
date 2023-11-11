@@ -30,7 +30,7 @@ class SplashScreenActivity : AppCompatActivity() {
             var intent = Intent(this, MainActivity::class.java)
             viewModel.getSession().observe(this) {user ->
                 if (!user.isLogin) {
-                    intent = Intent(this,LoginActivity::class.java)
+                    intent = Intent(this, WelcomeActivity::class.java)
                 }
             }
 

@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
 
                         Toast.makeText(this, result.error, Toast.LENGTH_LONG).show()
                     }
+
                 }
             }
         }
@@ -88,4 +89,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoading(state: Boolean) {binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE }
+
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 }
