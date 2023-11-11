@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StoryApp</string>
+    <string name="welcome">Selamat Datang!</string>
+    <string name="sign_in_text">Masuk sekarang untuk melanjutkan</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Belum memiliki akun?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_account">Buat Akun!</string>
+    <string name="fill_the_column">Silakan isi kolom di bawah ini</string>
+    <string name="already_have_an_account">Sudah memiliki akun?</string>
+    <string name="name">Nama</string>
+    <string name="password_error">Minimal 8 karakter</string>
+    <string name="email_error">Bukan email yang valid!</string>
+    <string name="create_password">Buat password</string>
+    <string name="enter_your_password">Masukan password anda</string>
+    <string name="enter_your_email">Masukan email anda</string>
+    <string name="image_login">Gambar Login</string>
+    <string name="image_register">Gambar Register</string>
+    <string name="create_email">Buat email</string>
+    <string name="enter_your_name">Masukan nama anda</string>
+    <string name="story_photo">Story Photo</string>
+    <string name="icon_person">Icon Person</string>
+    <string name="description">Keterangan</string>
+    <string name="button_add_story">Tombol tambah cerita</string>
+    <string name="image_story_photo">Image story photo</string>
+    <string name="add_description">Tambahkan keterangan</string>
+    <string name="image_not_found">Gambar tidak ditemukan!</string>
+    <string name="menu_logout">Menu Logout</string>
+    <string name="menu_language">Menu Language</string>
+    <string name="main_title">Halo, %1$s!</string>
+    <string name="logo_app">Logo App</string>
+    <string name="upload">Unggah</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="image_welcome">Image Welcome</string>
+    <string name="share_is_fun">Berbagi itu Menyenangkan!</string>
+    <string name="share_your_activities">Bagikan aktivitas Anda dengan kami!</string>
+    <string name="get_started">Mulai!</string>
+</resources>
