@@ -71,6 +71,8 @@ class StoryRepository private constructor(
             val jsonInString = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(jsonInString, DetailResponse::class.java)
             emit(Result.Error(errorResponse.message))
+        } catch (e: Exception) {
+            emit(Result.Error(e.message.toString()))
         }
     }
 

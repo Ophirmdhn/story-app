@@ -51,6 +51,9 @@ class DetailActivity : AppCompatActivity() {
                         is Result.Error -> {
                             showLoading(false)
                             Toast.makeText(this, result.error, Toast.LENGTH_LONG).show()
+                            binding.tvDetailName.visibility = View.INVISIBLE
+                            binding.tvDetailDescription.visibility = View.INVISIBLE
+                            binding.tvError.visibility = View.VISIBLE
                         }
                     }
                 }
