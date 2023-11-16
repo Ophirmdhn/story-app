@@ -3,6 +3,8 @@ package com.ophi.storyapp.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -35,11 +37,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        showStory()
+        viewModel.getSession().observe(this) { user ->
+            binding.topAppBar.title = getString(R.string.main_title, user.name)
+        }
 
-//        viewModel.getSession().observe(this) { user ->
-//
-//        }
+        showStory()
     }
 
     override fun onResume() {
@@ -69,10 +71,28 @@ class MainActivity : AppCompatActivity() {
 
                         Toast.makeText(this, result.error, Toast.LENGTH_LONG).show()
                     }
+
                 }
             }
         }
     }
 
+    fun language(item: MenuItem) {
+        startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+    }
+
+    fun logout(item: MenuItem) {
+        viewModel.logout()
+        val intent =Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun showLoading(state: Boolean) {binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE }
+
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 }

@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/top_app_bar"
+        style="@style/TopAppBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/app_name"
+        android:paddingTop="8dp"
+        app:titleTextColor="@color/black"
+        android:background="@color/white"
+        app:menu="@menu/main_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_story"
         android:layout_width="match_parent"
@@ -13,8 +27,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/story_item"/>
+        app:layout_constraintTop_toBottomOf="@id/top_app_bar"
+        app:layout_constraintVertical_bias="0.16"
+        tools:listitem="@layout/story_item" />
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -1,8 +1,10 @@
 package com.ophi.storyapp.adapter
 
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ophi.storyapp.data.response.ListStoryItem
@@ -21,11 +23,10 @@ class StoryAdapter(private val listStory: List<ListStoryItem>) :
                     .into(binding.ivItemPhoto)
                 binding.tvItemName.text = storyList.name
 
-                itemView.setOnClickListener {
-                    val storyId = storyList.id
+                binding.root.setOnClickListener {
                     val intentDetail = Intent(binding.root.context, DetailActivity::class.java)
-                    intentDetail.putExtra(DetailActivity.ID_STORY, storyId)
-                    binding.root.context.startActivity(intentDetail)
+                    intentDetail.putExtra(DetailActivity.DETAIL_STORY, storyList)
+                    itemView.context.startActivity(intentDetail, ActivityOptionsCompat.makeSceneTransitionAnimation(itemView.context as Activity).toBundle())
                 }
             }
     }

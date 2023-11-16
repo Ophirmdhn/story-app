@@ -1,6 +1,5 @@
 package com.ophi.storyapp.data.retrofit
 
-import com.ophi.storyapp.data.response.DetailResponse
 import com.ophi.storyapp.data.response.LoginResponse
 import com.ophi.storyapp.data.response.SignupResponse
 import com.ophi.storyapp.data.response.StoryResponse
@@ -13,7 +12,6 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
-import retrofit2.http.Path
 
 interface ApiService {
 
@@ -34,11 +32,6 @@ interface ApiService {
 
     @GET("stories")
     suspend fun getStories(): StoryResponse
-
-    @GET("stories/{id}")
-    suspend fun getDetail(
-        @Path("id") id: String
-    ): DetailResponse
 
     @Multipart
     @POST("stories")

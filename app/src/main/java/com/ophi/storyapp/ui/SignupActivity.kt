@@ -76,10 +76,4 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showLoading(state: Boolean) {binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE }
 
-//    private fun showSnackBar(msg: String) {
-//        Snackbar.make(findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG)
-//            .setAction("Close") { }
-//            .setActionTextColor(Color.parseColor("#f99932"))
-//            .show()
-//    }
 }

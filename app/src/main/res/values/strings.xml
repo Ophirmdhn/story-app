@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">StoryApp</string>
-    <string name="wellcome">Wellcome Back!</string>
+    <string name="welcome">Welcome Back!</string>
     <string name="sign_in_text">Sign in now to continue</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -26,4 +26,17 @@
     <string name="button_add_story">Button add story</string>
     <string name="image_story_photo">Image story photo</string>
     <string name="add_description">Add description</string>
+    <string name="image_not_found">Image not found</string>
+    <string name="menu_logout">Menu Logout</string>
+    <string name="menu_language">Menu Language</string>
+    <string name="main_title">Hello, %1$s!</string>
+    <string name="logo_app">Logo App</string>
+    <string name="upload">Upload</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="image_welcome">Image Welcome</string>
+    <string name="share_is_fun">Share is Fun!</string>
+    <string name="share_your_activities">Share your activities with us!</string>
+    <string name="get_started">Get started!</string>
+    <string name="turn_on_internet">Turn On Internet</string>
 </resources>
