@@ -9,6 +9,7 @@ import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.google.gson.Gson
 import com.ophi.storyapp.data.database.StoryDatabase
+import com.ophi.storyapp.data.response.ErrorResponse
 import com.ophi.storyapp.data.response.ListStoryItem
 import com.ophi.storyapp.data.response.LoginResponse
 import com.ophi.storyapp.data.response.SignupResponse
@@ -97,6 +98,19 @@ class StoryRepository private constructor(
                 database.storyDao().getAllStory()
             }
         ).liveData
+    }
+
+    fun getStoriesWithLocation(): LiveData<Result<List<ListStoryItem>>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getStoriesWithLocation()
+            emit(Result.Success(response.listStory))
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            emit(Result.Error(errorMessage.toString()))
+        }
     }
 
     companion object {

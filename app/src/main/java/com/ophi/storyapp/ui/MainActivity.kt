@@ -56,13 +56,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun maps(item: MenuItem) {
+        val intent = Intent(this@MainActivity, MapsActivity::class.java)
+        startActivity(intent)
+    }
+
     fun language(item: MenuItem) {
         startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
     }
 
     fun logout(item: MenuItem) {
         viewModel.logout()
-        val intent =Intent(this@MainActivity, LoginActivity::class.java)
+        val intent = Intent(this@MainActivity, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
