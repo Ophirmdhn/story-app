@@ -59,14 +59,16 @@ class StoryRepository private constructor(
         }
     }
 
-    fun upload(imageFile: File, description: String) = liveData {
+    fun upload(imageFile: File, description: String, lat: Double?, lon: Double?) = liveData {
         emit(Result.Loading)
         val requestBody = description.toRequestBody("text/plain".toMediaType())
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
         val multipartBody = MultipartBody.Part.createFormData("photo",imageFile.name,requestImageFile)
+        val requestLat = lat?.toString()?.toRequestBody()
+        val requestLon = lon?.toString()?.toRequestBody()
 
         try {
-            val successResponse = apiService.uploadStories(multipartBody, requestBody)
+            val successResponse = apiService.uploadStories(multipartBody, requestBody, requestLat, requestLon)
             emit(Result.Success(successResponse))
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()

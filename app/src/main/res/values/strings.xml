@@ -41,4 +41,5 @@
     <string name="retry">Retry</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="menu_maps">Menu Maps</string>
+    <string name="share_your_location">Do you want to share your location?</string>
 </resources>
