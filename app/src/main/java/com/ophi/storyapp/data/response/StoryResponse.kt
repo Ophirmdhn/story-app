@@ -31,12 +31,12 @@ data class ListStoryItem(
 	@field:SerializedName("description")
 	val description: String,
 
-	@field:SerializedName("lon")
-	val lon: Double? = null,
-
 	@field:SerializedName("id")
 	@PrimaryKey
 	val id: String,
+
+	@field:SerializedName("lon")
+	val lon: Double? = null,
 
 	@field:SerializedName("lat")
 	val lat: Double? = null
