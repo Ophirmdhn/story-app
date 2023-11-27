@@ -23,20 +23,27 @@ class DetailActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setData()
-    }
+        id = intent.getStringExtra(ID) ?: ""
+        name = intent.getStringExtra(NAME) ?: ""
+        description = intent.getStringExtra(DESCRIPTION) ?: ""
+        picture = intent.getStringExtra(PICTURE) ?: ""
 
-    private fun setData() {
-        @Suppress("DEPRECATION")
-        val story = intent.getParcelableExtra<ListStoryItem>(DETAIL_STORY) as ListStoryItem
-        Glide.with(binding.root.context)
-            .load(story.photoUrl)
+        Glide.with(this)
+            .load(picture)
             .into(binding.ivDetailPhoto)
-        binding.tvDetailName.text = story.name
-        binding.tvDetailDescription.text = story.description
+        binding.tvDetailName.text = name
+        binding.tvDetailDescription.text = description
     }
 
     companion object {
-        const val DETAIL_STORY = "detail_story"
+        const val ID = "ID"
+        const val NAME = "NAME"
+        const val DESCRIPTION = "DESCRIPTION"
+        const val PICTURE = "PICTURE"
+
+        var id: String = ""
+        var name: String = ""
+        var description: String? = null
+        var picture: String? = null
     }
 }

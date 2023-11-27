@@ -2,10 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:menuCategory="container">
+
+    <item
+        android:id="@+id/menu_maps"
+        android:icon="@drawable/ic_baseline_map_24"
+        app:showAsAction="always"
+        android:title="@string/menu_maps"
+        android:onClick="maps"/>
     <item
         android:id="@+id/menu_language"
         android:icon="@drawable/ic_baseline_language_24"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:title="@string/menu_language"
         android:onClick="language"/>
 

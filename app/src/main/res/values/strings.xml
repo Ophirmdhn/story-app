@@ -38,5 +38,8 @@
     <string name="share_is_fun">Share is Fun!</string>
     <string name="share_your_activities">Share your activities with us!</string>
     <string name="get_started">Get started!</string>
-    <string name="turn_on_internet">Turn On Internet</string>
+    <string name="retry">Retry</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="menu_maps">Menu Maps</string>
+    <string name="share_your_location">Do you want to share your location?</string>
 </resources>
